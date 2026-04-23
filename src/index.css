@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+#root {
+  min-height: 100vh;
+  background: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 88px;
+}
+
+.font-serif-display {
+  font-family: 'DM Serif Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.nav-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.75);
+  transition: color 120ms ease;
+}
+
+.nav-link:hover {
+  color: #e2e8f0;
+}
+
+.nav-scroll > div {
+  scrollbar-width: none;
+}
+
+.nav-scroll > div::-webkit-scrollbar {
+  display: none;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #34d399;
+}

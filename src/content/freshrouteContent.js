@@ -377,7 +377,7 @@ export const paper = {
 
 export const commercialization = {
   poster: {
-    src: '/media/freshroute-business-poster.svg',
+    src: '/media/freshroute-business-poster.png',
     alt: 'FreshRoute business poster',
   },
   businessAccounts: [

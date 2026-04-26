@@ -25,9 +25,9 @@ import {
 
 const docTabs = [
   { key: 'all', label: 'All Documents' },
-  { key: 'proposal', label: 'Proposals' },
-  { key: 'report', label: 'Reports' },
-  { key: 'individual', label: 'Individual' },
+  { key: 'taf', label: 'TAF' },
+  { key: 'proposals', label: 'Proposals' },
+  { key: 'reports', label: 'Reports' },
   { key: 'other', label: 'Other' },
 ]
 
@@ -446,13 +446,30 @@ export default function Home() {
 
         <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-6 px-6 md:grid-cols-2">
           {supervisors.map((s) => (
-            <div key={s.name} className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div className="flex h-14 w-14 flex-none items-center justify-center rounded-full bg-white/10 font-serif-display text-lg text-slate-50">
-                {s.initials}
-              </div>
-              <div>
+            <div key={s.name} className="flex gap-5 rounded-2xl border border-white/10 bg-white/5 p-7">
+              {s.photo ? (
+                <img
+                  src={s.photo}
+                  alt={s.name}
+                  className="h-16 w-16 flex-none rounded-full border border-white/10 object-cover sm:h-20 sm:w-20"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex h-16 w-16 flex-none items-center justify-center rounded-full bg-white/10 font-serif-display text-lg text-slate-50 sm:h-20 sm:w-20">
+                  {s.initials}
+                </div>
+              )}
+              <div className="min-w-0">
                 <div className="text-sm font-semibold text-slate-50">{s.name}</div>
                 <div className="mt-1 text-xs uppercase tracking-[0.16em] text-slate-400">{s.title}</div>
+                {s.email ? (
+                  <a
+                    href={`mailto:${s.email}`}
+                    className="mt-2 block text-sm text-slate-200 underline decoration-white/20 underline-offset-4 hover:decoration-secondary"
+                  >
+                    {s.email}
+                  </a>
+                ) : null}
                 <p className="mt-2 text-sm leading-7 text-slate-300">{s.body}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {s.tags.map((t) => (
@@ -497,11 +514,8 @@ export default function Home() {
 
           <div className="mt-8 space-y-3">
             {filteredDocs.map((d) => (
-              <a
+              <div
                 key={d.id}
-                href={d.href}
-                target="_blank"
-                rel="noreferrer"
                 className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10 sm:flex-row sm:items-center"
               >
                 <div className="flex-1">
@@ -510,19 +524,37 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="pill">{d.badge}</span>
-                  <span className="rounded-lg border border-secondary/30 bg-secondary/10 px-3 py-2 text-xs font-semibold text-secondary">
-                    {d.cta}
-                  </span>
+                  {d.href ? (
+                    <>
+                      <a
+                        href={d.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-100 hover:bg-white/10"
+                      >
+                        View
+                      </a>
+                      <a
+                        href={d.href}
+                        download
+                        className="rounded-lg border border-secondary/30 bg-secondary/10 px-3 py-2 text-xs font-semibold text-secondary hover:bg-secondary/20"
+                      >
+                        Download
+                      </a>
+                    </>
+                  ) : (
+                    <span className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-400">Coming soon</span>
+                  )}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 
           <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6">
             <div className="text-sm font-semibold text-slate-50">Add your real PDFs</div>
             <p className="mt-2 text-sm leading-7 text-slate-300">
-              Replace the placeholder file in <span className="font-semibold text-slate-100">public/docs</span> with your real PDFs (same names/links),
-              and the download buttons will work automatically.
+              You can add PDFs inside <span className="font-semibold text-slate-100">src/components/documents</span> and then link them in
+              <span className="font-semibold text-slate-100"> src/content/freshrouteContent.js</span>. Missing items will show as “Coming soon” until provided.
             </p>
           </div>
         </div>

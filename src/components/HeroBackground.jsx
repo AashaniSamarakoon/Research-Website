@@ -66,108 +66,108 @@ function CloudSvg({ className }) {
   )
 }
 
-function TruckSvg({ className }) {
-  return (
-    <svg viewBox="0 0 340 120" className={className} aria-hidden="true" focusable="false">
-      <defs>
-        <filter id="truckShadow" x="-30%" y="-30%" width="160%" height="160%">
-          <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#000000" floodOpacity="0.35" />
-          <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#10B981" floodOpacity="0.22" />
-        </filter>
-      </defs>
+// function TruckSvg({ className }) {
+//   return (
+//     <svg viewBox="0 0 340 120" className={className} aria-hidden="true" focusable="false">
+//       <defs>
+//         <filter id="truckShadow" x="-30%" y="-30%" width="160%" height="160%">
+//           <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#000000" floodOpacity="0.35" />
+//           <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#10B981" floodOpacity="0.22" />
+//         </filter>
+//       </defs>
 
-      <g filter="url(#truckShadow)">
-      {/* trailer panel */}
-      <rect x="20" y="38" width="190" height="52" rx="10" fill="currentColor" className="text-white" opacity="0.10" />
-      <rect x="20" y="38" width="190" height="52" rx="10" fill="currentColor" className="text-secondary" opacity="0.32" />
+//       <g filter="url(#truckShadow)">
+//       {/* trailer panel */}
+//       <rect x="20" y="38" width="190" height="52" rx="10" fill="currentColor" className="text-white" opacity="0.10" />
+//       <rect x="20" y="38" width="190" height="52" rx="10" fill="currentColor" className="text-secondary" opacity="0.32" />
 
-      {/* trailer border to improve readability */}
-      <rect
-        x="20"
-        y="38"
-        width="190"
-        height="52"
-        rx="10"
-        fill="none"
-        stroke="currentColor"
-        className="text-secondary"
-        strokeWidth="3"
-        opacity="0.9"
-      />
+//       {/* trailer border to improve readability */}
+//       <rect
+//         x="20"
+//         y="38"
+//         width="190"
+//         height="52"
+//         rx="10"
+//         fill="none"
+//         stroke="currentColor"
+//         className="text-secondary"
+//         strokeWidth="3"
+//         opacity="0.9"
+//       />
 
-      {/* FreshRoute label */}
-      <g fill="currentColor" className="text-slate-950" opacity="0.95">
-        <text
-          x="34"
-          y="73"
-          fontSize="20"
-          fontWeight="700"
-          fontFamily="DM Sans, ui-sans-serif, system-ui"
-          letterSpacing="0.5"
-        >
-          FreshRoute
-        </text>
-      </g>
+//       {/* FreshRoute label */}
+//       <g fill="currentColor" className="text-slate-950" opacity="0.95">
+//         <text
+//           x="34"
+//           y="73"
+//           fontSize="20"
+//           fontWeight="700"
+//           fontFamily="DM Sans, ui-sans-serif, system-ui"
+//           letterSpacing="0.5"
+//         >
+//           FreshRoute
+//         </text>
+//       </g>
 
-      {/* light overlay text to pop on dark backgrounds */}
-      <g fill="currentColor" className="text-white" opacity="0.92">
-        <text
-          x="34"
-          y="73"
-          fontSize="20"
-          fontWeight="800"
-          fontFamily="DM Sans, ui-sans-serif, system-ui"
-          letterSpacing="0.5"
-        >
-          FreshRoute
-        </text>
-      </g>
+//       {/* light overlay text to pop on dark backgrounds */}
+//       <g fill="currentColor" className="text-white" opacity="0.92">
+//         <text
+//           x="34"
+//           y="73"
+//           fontSize="20"
+//           fontWeight="800"
+//           fontFamily="DM Sans, ui-sans-serif, system-ui"
+//           letterSpacing="0.5"
+//         >
+//           FreshRoute
+//         </text>
+//       </g>
 
-      {/* cargo lines */}
-      <g className="text-white" stroke="currentColor" strokeWidth="2" opacity="0.16">
-        <line x1="36" y1="80" x2="200" y2="80" />
-        <line x1="36" y1="52" x2="200" y2="52" opacity="0.6" />
-      </g>
+//       {/* cargo lines */}
+//       <g className="text-white" stroke="currentColor" strokeWidth="2" opacity="0.16">
+//         <line x1="36" y1="80" x2="200" y2="80" />
+//         <line x1="36" y1="52" x2="200" y2="52" opacity="0.6" />
+//       </g>
 
-      {/* cab */}
-      <path
-        d="M230 90h58c10 0 18-8 18-18V56c0-7-4-12-10-14l-16-5c-3-1-6-1-9-1h-41V90z"
-        fill="currentColor"
-        className="text-white"
-        opacity="0.14"
-      />
-      <path
-        d="M252 42h30c5 0 9 4 9 9v20h-39V42z"
-        fill="currentColor"
-        className="text-white"
-        opacity="0.08"
-      />
+//       {/* cab */}
+//       <path
+//         d="M230 90h58c10 0 18-8 18-18V56c0-7-4-12-10-14l-16-5c-3-1-6-1-9-1h-41V90z"
+//         fill="currentColor"
+//         className="text-white"
+//         opacity="0.14"
+//       />
+//       <path
+//         d="M252 42h30c5 0 9 4 9 9v20h-39V42z"
+//         fill="currentColor"
+//         className="text-white"
+//         opacity="0.08"
+//       />
 
-      {/* outline */}
-      <path
-        d="M20 90h250c10 0 18-8 18-18V56c0-7-4-12-10-14l-16-5c-3-1-6-1-9-1h-43V36c0-6-6-12-12-12H32c-6 0-12 6-12 12v54z"
-        stroke="currentColor"
-        strokeWidth="4"
-        className="text-secondary"
-        fill="none"
-        opacity="0.9"
-      />
+//       {/* outline */}
+//       <path
+//         d="M20 90h250c10 0 18-8 18-18V56c0-7-4-12-10-14l-16-5c-3-1-6-1-9-1h-43V36c0-6-6-12-12-12H32c-6 0-12 6-12 12v54z"
+//         stroke="currentColor"
+//         strokeWidth="4"
+//         className="text-secondary"
+//         fill="none"
+//         opacity="0.9"
+//       />
 
-      {/* wheels */}
-      <g className="text-secondary" fill="currentColor" opacity="0.9">
-        <circle cx="92" cy="94" r="16" opacity="0.25" />
-        <circle cx="92" cy="94" r="9" opacity="0.8" />
+//       {/* wheels */}
+//       <g className="text-secondary" fill="currentColor" opacity="0.9">
+//         <circle cx="92" cy="94" r="16" opacity="0.25" />
+//         <circle cx="92" cy="94" r="9" opacity="0.8" />
 
-        <circle cx="202" cy="94" r="16" opacity="0.25" />
-        <circle cx="202" cy="94" r="9" opacity="0.8" />
+//         <circle cx="202" cy="94" r="16" opacity="0.25" />
+//         <circle cx="202" cy="94" r="9" opacity="0.8" />
 
-        <circle cx="270" cy="94" r="16" opacity="0.25" />
-        <circle cx="270" cy="94" r="9" opacity="0.8" />
-      </g>
-      </g>
-    </svg>
-  )
-}
+//         <circle cx="270" cy="94" r="16" opacity="0.25" />
+//         <circle cx="270" cy="94" r="9" opacity="0.8" />
+//       </g>
+//       </g>
+//     </svg>
+//   )
+// }
 
 export default function HeroBackground() {
   const reduceMotion = useReducedMotion()
@@ -256,7 +256,8 @@ export default function HeroBackground() {
         }
         style={{ willChange: 'transform' }}
       >
-        <TruckSvg className="h-32 w-auto" />
+        {/* <TruckSvg className="h-32 w-auto" /> */}
+
       </motion.div>
 
       {/* Foreground fade for readability */}

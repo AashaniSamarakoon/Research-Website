@@ -356,6 +356,11 @@ export const uiDesigns = [
   },
 ];
 
+export const uiDemo = {
+  label: "UI/UX Demo Video",
+  href: "https://onedrive.live.com/",
+};
+
 export const interviews = [
   {
     quote:

@@ -21,6 +21,7 @@ import {
   supervisors,
   teamMembers,
   testing,
+  uiDemo,
   uiDesigns,
 } from "../content/freshrouteContent";
 
@@ -667,6 +668,29 @@ export default function Home() {
               />
             </div>
           ))}
+        </div>
+
+        <div className="mx-auto mt-8 max-w-6xl px-6">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="text-sm font-semibold text-slate-50">
+                  {uiDemo.label}
+                </div>
+                <p className="mt-2 text-sm text-slate-300">
+                  Watch the UI/UX walkthrough and prototype demo.
+                </p>
+              </div>
+              <a
+                href={uiDemo.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-lg bg-secondary px-5 py-3 text-sm font-semibold text-slate-950 hover:opacity-90"
+              >
+                View Demo Video
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

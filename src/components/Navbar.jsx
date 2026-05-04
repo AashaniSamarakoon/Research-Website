@@ -14,32 +14,26 @@ export default function Navbar() {
 
         <div className="hidden min-w-0 flex-1 items-center px-2 md:flex lg:px-4">
           <div className="flex flex-1 flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <a className="nav-link" href="#about">
-              About
+            <a className="nav-link" href="#home">
+              Home
             </a>
-            <a className="nav-link" href="#problems">
-              Problems
+            <a className="nav-link" href="#domain">
+              Domain
             </a>
-            <a className="nav-link" href="#methodology">
-              Approach
-            </a>
-            <a className="nav-link" href="#interviews">
-              Validation
-            </a>
-            <a className="nav-link" href="#comparison">
-              Compare
+            <a className="nav-link" href="#milestones">
+              Milestones
             </a>
             <a className="nav-link" href="#documents">
-              Resources
+              Documents
             </a>
-            <a className="nav-link" href="#commercialization">
-              Business
+            <a className="nav-link" href="#slides">
+              Slides
             </a>
             <a className="nav-link" href="#team">
-              Team
+              About us
             </a>
             <a className="nav-link" href="#contact">
-              Contact
+              Contact us
             </a>
           </div>
         </div>
@@ -48,14 +42,14 @@ export default function Navbar() {
           href="#documents"
           className="hidden shrink-0 items-center whitespace-nowrap rounded-full border border-secondary/30 bg-secondary/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-secondary hover:bg-secondary/20 md:inline-flex"
         >
-          Downloads
+          Documents
         </a>
 
         <a
           href="#documents"
           className="shrink-0 inline-flex items-center rounded-lg bg-secondary px-3 py-2 text-sm font-semibold text-slate-950 hover:opacity-90 md:hidden"
         >
-          Downloads
+          Documents
         </a>
       </div>
     </nav>

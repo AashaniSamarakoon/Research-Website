@@ -8,8 +8,6 @@ import pdfFinalIT22124494 from "../components/documents/final_reports/IT22124494
 import pdfFinalIT22213730 from "../components/documents/final_reports/IT22213730-Thesis_Report_Draft.pdf";
 import pdfFinalIT22230874 from "../components/documents/final_reports/IT22230874-Thesis_Report_Draft.pdf";
 import pdfFinalIT22257154 from "../components/documents/final_reports/IT22257154-Thesis_Report_Draft.pdf";
-import pdfProgressPresentation1 from "../components/documents/progress_presentations/PP1 presentation .pdf";
-import pdfProgressPresentation2 from "../components/documents/progress_presentations/PP2 presentation .pdf";
 import pdfResearchPaper from "../components/documents/research_paper/FreshRoute Research Paper.pdf";
 import imgKarthiga from "../components/image/Academic Guidance/karthigar-1729408999.jpeg";
 import imgPoojani from "../components/image/Academic Guidance/poojanig-1715838681.jpeg";
@@ -21,6 +19,61 @@ import videoInterview from "../components/image/interview/interview_video.mp4";
 import imgUi1 from "../components/image/ui/ui1.png";
 import imgUi2 from "../components/image/ui/ui2.png";
 
+const presentationSlideModules = import.meta.glob(
+  "../components/documents/Presentation slides/*.pdf",
+  { eager: true, import: "default" },
+);
+
+function normalizePresentationTitle(fileBaseName) {
+  const trimmed = String(fileBaseName).trim();
+  const normalized = trimmed.replace(/[_-]+/g, " ").replace(/\s+/g, " ");
+
+  if (/proposal/i.test(normalized)) return "Proposal Presentation";
+  if (/\bpp\s*1\b/i.test(normalized) || /progress\s*1/i.test(normalized)) {
+    return "Progress Presentation 1";
+  }
+  if (/\bpp\s*2\b/i.test(normalized) || /progress\s*2/i.test(normalized)) {
+    return "Progress Presentation 2";
+  }
+  if (/final/i.test(normalized)) return "Final Presentation";
+
+  return normalized.replace(/\bpresentation\b/i, "").trim();
+}
+
+function rankPresentationTitle(title) {
+  if (title === "Proposal Presentation") return 0;
+  if (title === "Progress Presentation 1") return 1;
+  if (title === "Progress Presentation 2") return 2;
+  if (title === "Final Presentation") return 3;
+  return 99;
+}
+
+const presentationSlideDocs = Object.entries(presentationSlideModules)
+  .map(([path, href]) => {
+    const fileName = path.split("/").pop() ?? "";
+    const baseName = fileName.replace(/\.pdf$/i, "");
+    const title = normalizePresentationTitle(baseName);
+    const id = `slide-${baseName
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")}`;
+
+    return {
+      id,
+      category: "reports",
+      title,
+      meta: "Submitted · Group",
+      badge: "Presentation",
+      href,
+      provided: true,
+    };
+  })
+  .sort(
+    (a, b) =>
+      rankPresentationTitle(a.title) - rankPresentationTitle(b.title) ||
+      a.title.localeCompare(b.title),
+  );
+
 export const project = {
   name: "FreshRoute",
   tagline: "Smart Fruit Supply Chain Management",
@@ -28,7 +81,7 @@ export const project = {
   highlights: [
     "AI/ML",
     "Blockchain Traceability",
-    "Web Platform",
+    "Mobile Platform",
     "Supply Chain",
   ],
 };
@@ -264,24 +317,7 @@ export const documents = [
     href: pdfProposalIT22257154,
     provided: true,
   },
-  {
-    id: "progress-1",
-    category: "reports",
-    title: "Progress Presentation 1",
-    meta: "Submitted · Group",
-    badge: "Presentation",
-    href: pdfProgressPresentation1,
-    provided: true,
-  },
-  {
-    id: "progress-2",
-    category: "reports",
-    title: "Progress Presentation 2",
-    meta: "Submitted · Group",
-    badge: "Presentation",
-    href: pdfProgressPresentation2,
-    provided: true,
-  },
+  ...presentationSlideDocs,
   {
     id: "final-report-group",
     category: "reports",
@@ -358,7 +394,7 @@ export const uiDesigns = [
 
 export const uiDemo = {
   label: "UI/UX Demo Video",
-  href: "https://onedrive.live.com/",
+  href: "https://mysliit.sharepoint.com/:v:/s/CDAPSubmissionCloud/IQCZKapeV-mZSqw6pBcpPjt6AVxwrOseefTsL2Ae1Va_qPU?e=OhJHsD",
 };
 
 export const interviews = [
@@ -478,6 +514,71 @@ export const paper = {
     "This paper presents FreshRoute, a research-driven approach to improving fruit supply chain efficiency and trust using AI-assisted insights and a blockchain-inspired traceability layer. Using mixed-methods research, stakeholder interviews, iterative UI/UX design, and multi-phase evaluation, we demonstrate measurable improvements in usability and operational visibility compared to baseline practices. The study contributes a practical evaluation framework and implementation guidelines for real-world adoption.",
   downloadHref: pdfResearchPaper,
 };
+
+export const domain = {
+  literatureSurvey:
+    "We reviewed recent research on perishable supply chain traceability, post-harvest loss reduction, blockchain adoption constraints, and AI/ML methods for demand forecasting and quality assessment.",
+  researchGap:
+    "Existing solutions typically address traceability or prediction in isolation, with limited end-to-end evidence capture and inconsistent evaluation criteria across stakeholders.",
+  researchProblem:
+    "How can a fruit supply chain platform provide trustworthy, auditable traceability while also delivering actionable AI-assisted insights — without making workflows too complex for real operations?",
+  researchObjectives: [
+    "Design a practical evidence trail for fruit batch lifecycle events.",
+    "Develop AI-based forecasting and quality-verification components to reduce waste and disputes.",
+    "Validate usability and performance through testing and stakeholder feedback.",
+    "Provide structured comparison criteria for evaluating outcomes.",
+  ],
+  methodologyNote:
+    "The study follows a mixed-methods approach (literature + interviews + iterative design + quantitative evaluation).",
+  technologiesUsed: [
+    "React Native",
+    "Node.js",
+    "PostgreSQL",
+    "AI/ML (time-series + computer vision)",
+    "Blockchain (permissioned)",
+    "IoT",
+    "Agile Methodology",
+  ],
+};
+
+export const milestones = [
+  {
+    id: "proposal",
+    title: "Project Proposal",
+    date: "09/11/2025",
+    marks: "Not Visible For Students",
+    status: "Completed",
+    description:
+      "Submission of the project proposal including problem statement, objectives, scope, and initial methodology.",
+  },
+  {
+    id: "pp1",
+    title: "Progress Presentation 1",
+    date: "01/07/2025",
+    marks: "Mix Level Mark is Exellent For all Group Members",
+    status: "Completed",
+    description:
+      "First progress checkpoint covering literature findings, requirement elicitation, and initial prototype progress.",
+  },
+  {
+    id: "pp2",
+    title: "Progress Presentation 2",
+    date: "11/03/2026",
+    marks: "Not Visible For Students",
+    status: "Completed",
+    description:
+      "Second progress checkpoint covering implementation maturity, testing plan, and interim evaluation results.",
+  },
+  {
+    id: "final",
+    title: "Final Presentation and Viva",
+    date: "05/05/2026",
+    marks: "Soon",
+    status: "Planned",
+    description:
+      "Final submission and evaluation including the full system, documentation, testing evidence, and research paper.",
+  },
+];
 
 export const contact = {
   generalEmail: "contact@freshroute.lk",

@@ -8,6 +8,8 @@ import pdfFinalIT22124494 from "../components/documents/final_reports/IT22124494
 import pdfFinalIT22213730 from "../components/documents/final_reports/IT22213730-Thesis_Report_Draft.pdf";
 import pdfFinalIT22230874 from "../components/documents/final_reports/IT22230874-Thesis_Report_Draft.pdf";
 import pdfFinalIT22257154 from "../components/documents/final_reports/IT22257154-Thesis_Report_Draft.pdf";
+import pdfChecklist1 from "../components/documents/Checklist/Checklist 1 Document.pdf";
+import pdfDeploymentReport from "../components/documents/Checklist/FreshRoute_Deployment_Report.pdf";
 import pdfResearchPaper from "../components/documents/research_paper/FreshRoute Research Paper.pdf";
 import imgKarthiga from "../components/image/Academic Guidance/karthigar-1729408999.jpeg";
 import imgPoojani from "../components/image/Academic Guidance/poojanig-1715838681.jpeg";
@@ -315,6 +317,33 @@ export const documents = [
     meta: "Submitted · Individual",
     badge: "Individual",
     href: pdfProposalIT22257154,
+    provided: true,
+  },
+  {
+    id: "checklist-1",
+    category: "checklists",
+    title: "Check List Document 1",
+    meta: "Submitted · Group",
+    badge: "Checklist",
+    href: pdfChecklist1,
+    provided: true,
+  },
+  {
+    id: "checklist-2",
+    category: "checklists",
+    title: "Check List Document 2 (UI/UX Demo Video)",
+    meta: "Drive link · UI/UX demo",
+    badge: "Checklist",
+    href: "https://mysliit.sharepoint.com/:v:/s/CDAPSubmissionCloud/IQCZKapeV-mZSqw6pBcpPjt6AVxwrOseefTsL2Ae1Va_qPU?e=OhJHsD",
+    provided: true,
+  },
+  {
+    id: "checklist-3",
+    category: "checklists",
+    title: "Check List Document 3 (Deployment Report)",
+    meta: "Submitted · Group",
+    badge: "Checklist",
+    href: pdfDeploymentReport,
     provided: true,
   },
   ...presentationSlideDocs,

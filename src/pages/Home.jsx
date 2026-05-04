@@ -31,6 +31,7 @@ const docTabs = [
   { key: "all", label: "All Documents" },
   { key: "taf", label: "TAF" },
   { key: "proposals", label: "Proposals" },
+  { key: "checklists", label: "CheckLists" },
   { key: "reports", label: "Reports" },
   { key: "other", label: "Other" },
 ];

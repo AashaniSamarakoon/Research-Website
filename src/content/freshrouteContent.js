@@ -11,6 +11,7 @@ import pdfFinalIT22257154 from "../components/documents/final_reports/IT22257154
 import pdfChecklist1 from "../components/documents/Checklist/Checklist 1 Document.pdf";
 import pdfDeploymentReport from "../components/documents/Checklist/FreshRoute_Deployment_Report.pdf";
 import pdfResearchPaper from "../components/documents/research_paper/FreshRoute Research Paper.pdf";
+import pdfProjectCharter from "../components/documents/project_charter.pdf";
 import imgKarthiga from "../components/image/Academic Guidance/karthigar-1729408999.jpeg";
 import imgPoojani from "../components/image/Academic Guidance/poojanig-1715838681.jpeg";
 import imgInterview1 from "../components/image/interview/interview1.png";
@@ -90,7 +91,7 @@ export const project = {
 
 export const stats = [
   { value: "4", label: "Group Members" },
-  { value: "13", label: "Documents" },
+  { value: "14", label: "Documents" },
   { value: "4+", label: "Problems Identified" },
   { value: "92%", label: "Testing Accuracy" },
   { value: "2", label: "Supervisors" },
@@ -402,6 +403,15 @@ export const documents = [
     href: pdfResearchPaper,
     provided: true,
   },
+  {
+    id: "project-charter",
+    category: "other",
+    title: "Project Charter",
+    meta: "Submitted · Group",
+    badge: "Charter",
+    href: pdfProjectCharter,
+    provided: true,
+  },
 ];
 
 export const uiDesigns = [
@@ -616,10 +626,10 @@ export const contact = {
     phone: "0703101244",
   },
   teamEmails: [
-    "it22124494@my.sliit.lk",
-    "it22213730@my.sliit.lk",
-    "it22230874@my.sliit.lk",
-    "it22257154@my.sliit.lk",
+    "ashanisamarakoon36@gmail.com",
+    "akalankadiaz@gmail.com",
+    "savinducs@gmail.com",
+    "sudarshan27922@gmail.com",
   ],
 };
 
